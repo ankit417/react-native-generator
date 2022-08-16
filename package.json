@@ -1,0 +1,29 @@
+{
+  "name": "react-native-generator",
+  "version": "1.0.0",
+  "description": "automate react native redundant tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "rn-code": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankit417/react-native-generator.git"
+  },
+  "keywords": [
+    "react-native",
+    "automate"
+  ],
+  "author": "Ankit Acharya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankit417/react-native-generator/issues"
+  },
+  "homepage": "https://github.com/ankit417/react-native-generator#readme",
+  "dependencies": {
+    "inquirer": "^9.1.0"
+  }
+}
