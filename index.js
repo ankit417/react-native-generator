@@ -10,7 +10,17 @@ switch (argument[2]) {
     screenGenerator.screenGenerator(argument[3]);
     break;
   case "component":
-    componentGenerator.componentGenerator(argument[3]);
+    var redux = false;
+    if (argument[3] == undefined) {
+      console.log(
+        "component name is required i.e: rn-code component component-name"
+      );
+      break;
+    }
+    if (argument[4] !== undefined) {
+      redux = argument[4];
+    }
+    componentGenerator.componentGenerator(argument[3], redux);
     break;
   default:
     console.log("No input");
