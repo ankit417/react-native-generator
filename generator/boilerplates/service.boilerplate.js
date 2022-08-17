@@ -1,7 +1,10 @@
+const capitalize = require("../utils/capitalize");
+
 exports.serviceBoilerplate = (fileName) => {
+  const name = capitalize(fileName);
   return `import {api} from '@src/api';
   
-type ${fileName}Response = {
+type ${name}Response = {
   success: boolean;
   data: {
     type: string;
@@ -14,13 +17,13 @@ type ${fileName}Response = {
   };
  };
 
-// MARK: - get${fileName}
-const get${fileName} = async ({
+// MARK: - get${name}
+const get${name} = async ({
   id
 }: {
   id: number;
-}): Promise<${fileName}Reponse> => {
-  const response = await api.get<${fileName}Response>(
+}): Promise<${name}Reponse> => {
+  const response = await api.get<${name}Response>(
     '/api/',
   );
   
@@ -28,10 +31,10 @@ const get${fileName} = async ({
   };
   
 const ${fileName}Service={
-    get${fileName}
+    get${name}
   }
 
 export {${fileName}Service};
-export type {${fileName}Response};
+export type {${name}Response};
   `;
 };

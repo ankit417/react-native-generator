@@ -1,11 +1,15 @@
+const capitalize = require("../utils/capitalize");
+
 exports.sliceBoilerplate = (fileName) => {
+  const name = capitalize(fileName);
+
   return `import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 import {${fileName}Service} from './${fileName}.service';
-import type {${fileName}Reponse} from './${fileName}.service';
+import type {${name}Reponse} from './${fileName}.service';
 
-const get${fileName} = createAsyncThunk(
-  '${fileName}/get${fileName}',
+const get${name} = createAsyncThunk(
+  '${fileName}/get${name}',
   async (
     data: {
       id: number;
@@ -13,7 +17,7 @@ const get${fileName} = createAsyncThunk(
     thunkAPI,
   ) => {
     try {
-      return await ${fileName}Service.get${fileName}(data);
+      return await ${fileName}Service.get${name}(data);
     } catch (error) {
       return thunkAPI.rejectWithValue('Cannot get ${fileName}}!');
     }
@@ -22,7 +26,7 @@ const get${fileName} = createAsyncThunk(
 
 const initialState: {
   loading: boolean;
-  data: ${fileName}Reponse | null;
+  data: ${name}Reponse | null;
   success: boolean;
 } = {
   loading: true,
@@ -31,26 +35,26 @@ const initialState: {
 };
 
 const ${fileName}Slice = createSlice({
-  name: '${fileName}',
+  name: '${fileName}Slice',
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(get${fileName}.pending, state => {
+    builder.addCase(get${name}.pending, state => {
       state.loading = true;
     });
-    builder.addCase(get${fileName}.fulfilled, (state, action) => {
+    builder.addCase(get${name}.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload;
       state.success = true;
     });
-    builder.addCase(get${fileName}.rejected, state => {
+    builder.addCase(get${name}.rejected, state => {
       state.loading = false;
     });
   },
 });
 
 export const {} = ${fileName}Slice.actions;
-export {get${fileName}};
+export {get${name}};
 export default ${fileName}Slice.reducer;
   `;
 };
