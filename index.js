@@ -2,10 +2,14 @@
 
 const screenGenerator = require("./generator/files/screen.generator");
 const componentGenerator = require("./generator/files/component.generator");
+const projectGenerator = require("./generator/files/cloneRepo");
 
 const argument = process.argv;
 
 switch (argument[2]) {
+  case "create":
+    projectGenerator.cloneRN();
+    break;
   case "screen":
     var redux = false;
     if (argument[3] == undefined) {
