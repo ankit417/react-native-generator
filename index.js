@@ -7,8 +7,17 @@ const argument = process.argv;
 
 switch (argument[2]) {
   case "screen":
-    screenGenerator.screenGenerator(argument[3]);
+    var redux = false;
+    if (argument[3] == undefined) {
+      console.log("Screen name is required i.e: rn-code screen screen-name");
+      break;
+    }
+    if (argument[4] !== undefined) {
+      redux = argument[4];
+    }
+    screenGenerator.screenGenerator(argument[3], redux);
     break;
+
   case "component":
     var redux = false;
     if (argument[3] == undefined) {
@@ -22,6 +31,7 @@ switch (argument[2]) {
     }
     componentGenerator.componentGenerator(argument[3], redux);
     break;
+
   default:
     console.log("No input");
     break;
