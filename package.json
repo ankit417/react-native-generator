@@ -25,6 +25,7 @@
   "homepage": "https://github.com/ankit417/react-native-generator#readme",
   "dependencies": {
     "inquirer": "^9.1.0",
+    "jimp": "^0.16.1",
     "shelljs": "^0.8.5"
   },
   "devDependencies": {

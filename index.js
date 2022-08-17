@@ -3,6 +3,7 @@
 const screenGenerator = require("./generator/files/screen.generator");
 const componentGenerator = require("./generator/files/component.generator");
 const projectGenerator = require("./generator/files/cloneRepo");
+const resIcon = require("./generator/helper/mipmap/mipmapGenerator");
 
 const argument = process.argv;
 
@@ -35,7 +36,13 @@ switch (argument[2]) {
     }
     componentGenerator.componentGenerator(argument[3], redux);
     break;
-
+  case "res-icon":
+    if (argument[3] == undefined) {
+      console.log("Image path is required");
+      break;
+    }
+    resIcon.generateIcon(argument[3]);
+    break;
   default:
     console.log("No input");
     break;
