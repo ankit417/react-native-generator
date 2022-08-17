@@ -12,8 +12,8 @@ switch (argument[2]) {
       console.log("Screen name is required i.e: rn-code screen screen-name");
       break;
     }
-    if (argument[4] !== undefined) {
-      redux = argument[4];
+    if (argument[4] !== undefined && argument[4] == "-r") {
+      redux = true;
     }
     screenGenerator.screenGenerator(argument[3], redux);
     break;
@@ -26,8 +26,8 @@ switch (argument[2]) {
       );
       break;
     }
-    if (argument[4] !== undefined) {
-      redux = argument[4];
+    if (argument[4] !== undefined && argument[4] == "-r") {
+      redux = true;
     }
     componentGenerator.componentGenerator(argument[3], redux);
     break;
