@@ -22,7 +22,7 @@ const get${name} = async ({
   id
 }: {
   id: number;
-}): Promise<${name}Reponse> => {
+}): Promise<${name}Response> => {
   const response = await api.get<${name}Response>(
     '/api/',
   );

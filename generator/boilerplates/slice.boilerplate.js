@@ -6,7 +6,7 @@ exports.sliceBoilerplate = (fileName) => {
   return `import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 import {${fileName}Service} from './${fileName}.service';
-import type {${name}Reponse} from './${fileName}.service';
+import type {${name}Response} from './${fileName}.service';
 
 const get${name} = createAsyncThunk(
   '${fileName}/get${name}',
@@ -26,7 +26,7 @@ const get${name} = createAsyncThunk(
 
 const initialState: {
   loading: boolean;
-  data: ${name}Reponse | null;
+  data: ${name}Response | null;
   success: boolean;
 } = {
   loading: true,
