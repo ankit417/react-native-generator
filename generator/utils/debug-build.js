@@ -8,8 +8,7 @@ exports.debugBuild = () => {
   if (!fs.existsSync(BUNDLE_PATH)) {
     fs.writeFileSync(BUNDLE_PATH, "", "utf8");
   }
-  shell.exec("cd android && ./gradlew clean & cd ..");
+  shell.exec(`${CURR_DIR}/android/gradlew clean`);
   shell.exec(BUNDLE_RES);
-  shell.exec(`cd android`);
-  shell.exec(`./gradlew assembleDebug`);
+  shell.exec(`${CURR_DIR}/gradlew assembleDebug`);
 };
