@@ -4,6 +4,7 @@ const screenGenerator = require("./generator/files/screen.generator");
 const componentGenerator = require("./generator/files/component.generator");
 const projectGenerator = require("./generator/files/cloneRepo");
 const resIcon = require("./generator/helper/mipmap/mipmapGenerator");
+const debugBuild = require("./generator/utils/debug-build");
 
 const argument = process.argv;
 
@@ -43,8 +44,11 @@ switch (argument[2]) {
     }
     resIcon.generateIcon(argument[3]);
     break;
+  case "debug-app":
+    debugBuild.debugBuild();
+    break;
   default:
-    console.log("No input");
+    console.log("Undefined argument");
     break;
 }
 
