@@ -44,9 +44,6 @@ switch (argument[2]) {
     }
     resIcon.generateIcon(argument[3]);
     break;
-  case "debug-app":
-    debugBuild.debugBuild();
-    break;
   default:
     console.log("Undefined argument");
     break;
